@@ -13,14 +13,14 @@ import java.sql.Date;
 @AllArgsConstructor
 public class ScheduleItemUpdateRequest {
     @JsonProperty(value = "group_id")
-    private long groupId;
+    private Long groupId;
 
     @JsonProperty(value = "subject_id")
-    private long subjectId;
+    private Long subjectId;
 
     private ScheduleItem.Type type;
 
     private Date date;
 
-    private byte position;
+    private Byte position;
 }

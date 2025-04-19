@@ -88,16 +88,21 @@ public class ScheduleItemController {
 
         ScheduleItem scheduleItem = scheduleItemOpt.get();
 
-        if(updateBody.getGroupId() != 0) {
+        if(updateBody.getGroupId() != null) {
             scheduleItem.setGroup(getGroupOrThrow(updateBody.getGroupId()));
         }
-        if(updateBody.getSubjectId() != 0) {
+        if(updateBody.getSubjectId() != null) {
             scheduleItem.setSubject(getSubjectOrThrow(updateBody.getSubjectId()));
         }
-        if(updateBody.getPosition() != 0) {
+        if(updateBody.getType() != null) {
+            scheduleItem.setType(updateBody.getType());
+        }
+        if(updateBody.getDate() != null) {
+            scheduleItem.setDate(updateBody.getDate());
+        }
+        if(updateBody.getPosition() != null) {
             scheduleItem.setPosition(updateBody.getPosition());
         }
-        // TODO: date and type
 
         return scheduleItemService.save(scheduleItem);
     }
