@@ -1,4 +1,4 @@
-package ua.nure.mpj.mpjlb1.entities;
+package ua.nure.mpj.lb2.entities;
 
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -6,10 +6,10 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name = "subjects")
+@Table(name = "groups")
 @Getter
 @NoArgsConstructor
-public class Subject {
+public class Group {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
@@ -18,7 +18,7 @@ public class Subject {
     @Column(nullable = false, unique = true)
     private String name;
 
-    @Setter
-    @Column(nullable = false, unique = true)
-    private String shortName;
+    public Group(String name) {
+        this.name = name;
+    }
 }

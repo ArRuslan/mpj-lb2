@@ -1,4 +1,4 @@
-package ua.nure.mpj.mpjlb1.entities;
+package ua.nure.mpj.lb2.entities;
 
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -37,6 +37,14 @@ public class ScheduleItem {
     @Setter
     @Column(nullable = false)
     private Type type;
+
+    public ScheduleItem(Group group, Subject subject, Date date, byte position, Type type) {
+        this.group = group;
+        this.subject = subject;
+        this.date = date;
+        this.position = position;
+        this.type = type;
+    }
 
     public static enum Type {
         LECTURE,
