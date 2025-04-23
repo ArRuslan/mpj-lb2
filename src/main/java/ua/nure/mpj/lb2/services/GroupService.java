@@ -36,4 +36,8 @@ public class GroupService {
     public void deleteById(long id) {
         groupRepository.deleteById(id);
     }
+
+    public Optional<Group> getByName(String name) {
+        return groupRepository.findByNameEquals(name);
+    }
 }

@@ -16,11 +16,11 @@ public class Subject {
     private long id;
 
     @Setter
-    @Column(nullable = false, unique = true)
+    @Column(nullable = false)
     private String name;
 
     @Setter
-    @Column(nullable = false, unique = true)
+    @Column(nullable = false)
     @JsonProperty(value = "short_name")
     private String shortName;
 

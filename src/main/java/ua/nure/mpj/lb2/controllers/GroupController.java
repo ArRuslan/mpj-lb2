@@ -44,7 +44,8 @@ public class GroupController {
 
     @PostMapping("/")
     public Group createGroup(@RequestBody GroupCreateRequest createBody) {
-        return groupService.save(new Group(createBody.getName()));
+        Optional<Group> group = groupService.getByName(createBody.getName());
+        return group.orElseGet(() -> groupService.save(new Group(createBody.getName())));
     }
 
     @GetMapping("/{id}")
@@ -66,6 +67,10 @@ public class GroupController {
         Group group = groupOpt.get();
 
         if((updateBody.getName() == null || updateBody.getName().isEmpty())) {
+            return group;
+        }
+
+        if(groupService.getByName(updateBody.getName()).isPresent()) {
             return group;
         }
 
